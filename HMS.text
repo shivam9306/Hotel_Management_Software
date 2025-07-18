@@ -1,0 +1,77 @@
+fseek(FILE *stream, long offset, int origin)
+Purpose: Moves the file pointer to a specific position in the file.
+
+Parameters:
+
+stream: File pointer (ptr in this case).
+
+offset: How many bytes to move the pointer.
+
+origin: From where to move — one of these:
+
+SEEK_SET → Beginning of file
+
+SEEK_CUR → Current position
+
+SEEK_END → End of file
+
+
+fread() is used to read binary data from a file.
+
+size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
+ptr: Pointer to a memory location where the data will be stored (&a in this case).
+
+size: Size of each item to read (sizeof(struct customer)).
+
+count: Number of items to read (1 record here).
+
+stream: File pointer (ptr, the opened file).
+
+ this means:
+Try to read 1 record (of size equal to one struct customer) from the file into variable a.
+
+If the read is successful, it returns 1.
+
+If the read fails or reaches end of file, it returns less than 1.
+
+🧠 Why check == 1?
+This condition ensures:
+
+The read was successful.
+
+Data in a is valid and safe to use.
+
+It avoids processing partial or corrupted data.
+
+
+
+Step	Explanation
+fopen(..., "rb+")	Opens file in read+write mode without truncating.
+fread(...)	Reads each record one by one.
+if(a.phone_no == phone)	Match by phone number. You could use name instead.
+fseek(..., SEEK_CUR)	Moves file pointer back to current record position.
+fwrite(...)	Overwrites the current record with new data.
+
+
+ -sizeof(...)
+The minus sign makes it negative, so you're moving backward in the file.
+
+🧠 Example in fseek():
+
+fseek(ptr, -sizeof(struct customer), SEEK_CUR);
+This means:
+
+Move the file pointer backward by one record, starting from the current position (e.g., just after reading the record).
+This is often used to overwrite the record just read.
+
+🧠 In fseek(ptr, -sizeof(struct customer), SEEK_END);
+This means:
+
+Jump to the start of the last record in the file.
+
+🔁 Summary:
+Expression	Meaning
+sizeof(struct customer)	Size in bytes of one customer record
+-sizeof(struct customer)	Negative offset: move backward by one customer record
+Used in fseek(..., SEEK_END)	Jump to last record in file
+Used in fseek(..., SEEK_CUR)	Rewind back to re-write current record after reading

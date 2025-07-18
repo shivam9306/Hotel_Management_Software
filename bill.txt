@@ -1,0 +1,17 @@
+--------- HOTEL BILL RECEIPT ---------
+
+Customer: Shivam raj
+Room Charges: 567.00
+GST @18.00%: 102.06
+Service Charge @5.00%: 28.35
+Total Bill: 697.41
+
+Customer: Atul gandu
+Room Charges: 789.34
+GST @18.00%: 142.08
+Service Charge @5.00%: 39.47
+Total Bill: 970.89
+
+--------------------------------------
+TOTAL AMOUNT FOR ALL CUSTOMERS: 1668.30
+--------- END OF RECEIPT ------------
