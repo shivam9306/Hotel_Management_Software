@@ -6,7 +6,7 @@ GST @18.00%: 102.06
 Service Charge @5.00%: 28.35
 Total Bill: 697.41
 
-Customer: Atul gandu
+Customer: Atul 
 Room Charges: 789.34
 GST @18.00%: 142.08
 Service Charge @5.00%: 39.47
