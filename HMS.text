@@ -56,7 +56,7 @@ fwrite(...)	Overwrites the current record with new data.
  -sizeof(...)
 The minus sign makes it negative, so you're moving backward in the file.
 
-🧠 Example in fseek():
+ Example in fseek():
 
 fseek(ptr, -sizeof(struct customer), SEEK_CUR);
 This means:
@@ -64,12 +64,12 @@ This means:
 Move the file pointer backward by one record, starting from the current position (e.g., just after reading the record).
 This is often used to overwrite the record just read.
 
-🧠 In fseek(ptr, -sizeof(struct customer), SEEK_END);
+In fseek(ptr, -sizeof(struct customer), SEEK_END);
 This means:
 
 Jump to the start of the last record in the file.
 
-🔁 Summary:
+ Summary:
 Expression	Meaning
 sizeof(struct customer)	Size in bytes of one customer record
 -sizeof(struct customer)	Negative offset: move backward by one customer record
